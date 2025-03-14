@@ -1,13 +1,20 @@
 import { View, Text } from 'react-native'
 import React from 'react'
 import '../global.css'
-
+import { useFonts } from 'expo-font'
+import { globalStyles } from '@/style/global-styles'
+import { Slot } from 'expo-router'
+import { StatusBar} from 'expo-status-bar'
 const _layout = () => {
-  return (
-    <View style={{ flex: 1, alignItems: 'center', justifyContent: 'center' }}>
-      <Text style={{ fontSize: 10, color: 'red' }}>layout</Text>
+  const [] = useFonts ({
+    Space: require("../assets/fonts/SpaceMono-Regular.ttf")
+  });
+
+  return(
+    <View style={globalStyles.background}>
+      <Slot/>
+      <StatusBar style='light'/>
     </View>
   )
 }
-
 export default _layout
